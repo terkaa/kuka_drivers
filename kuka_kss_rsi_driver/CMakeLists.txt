@@ -1,4 +1,3 @@
-add_compile_options(-std=c++14)
 cmake_minimum_required(VERSION 3.5)
 project(kuka_kss_rsi_driver)
 
