@@ -1,4 +1,4 @@
-# Copyright 2024 Áron Svastits
+# Copyright 2024 Aron Svastits
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import pytest
 
 from launch.launch_description_sources.python_launch_description_source import (
     PythonLaunchDescriptionSource,
-)  # noqa: E501
+)
 from launch.actions.include_launch_description import IncludeLaunchDescription
 from ament_index_python.packages import get_package_share_directory
 
@@ -47,7 +47,7 @@ def generate_test_description():
     )
 
 
-class TestModels(unittest.TestCase):
+class TestDriverStartup(unittest.TestCase):
     def test_read_stdout(self, proc_output):
         # Check for successful initialization
         proc_output.assertWaitFor("got segment base", timeout=5)
@@ -55,4 +55,6 @@ class TestModels(unittest.TestCase):
             "Successful initialization of hardware 'lbr_iiwa14_r820'", timeout=5
         )
         # Check whether disabling automatic activation was successful
-        proc_output.assertWaitFor("Hardware Component with name '' does not exists", timeout=5)
+        proc_output.assertWaitFor(
+            "Setting component 'lbr_iiwa14_r820' to 'unconfigured' state.", timeout=5
+        )

@@ -40,13 +40,13 @@ sudo apt upgrade
 rosdep install --from-paths . --ignore-src --rosdistro $ROS_DISTRO -y
 ```
 
-Build KUKA packages.
+Build all packages in workspace.
 ```bash
 cd ~/ros2_ws
 colcon build
 ```
 
-Source built KUKA packages.
+Source workspace.
 ```bash
 # Replace ".bash" with your shell if you're not using bash
 # Possible values are: setup.bash, setup.sh, setup.zsh
